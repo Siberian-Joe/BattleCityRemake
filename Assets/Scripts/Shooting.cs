@@ -1,20 +1,23 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private GameObject _shellObject;
+    [SerializeField] private Shell _shellObject;
     [SerializeField] private float _speedShell = 7;
     [SerializeField] private float _fireRate = 10;
     [SerializeField] private GameObject _barrel;
+    [SerializeField] private AudioClip _shootingAudio;
 
     private Input _input;
-
-    private GameObject _shell;
+    private Shell _shell;
     private float _timer;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         _input = new Input();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -38,5 +41,7 @@ public class Shooting : MonoBehaviour
 
         _shell = Instantiate(_shellObject, _barrel.transform.position, transform.rotation);
         _shell.GetComponent<Rigidbody>().AddForce(_shell.transform.forward * _speedShell, ForceMode.Impulse);
+
+        _audioSource.PlayOneShot(_shootingAudio, 0.1f);
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Shell : MonoBehaviour
 {
     [SerializeField] private float _explosionRadius;
@@ -8,7 +9,7 @@ public class Shell : MonoBehaviour
     {
         GameObject hitObject = collision.collider.gameObject;
 
-        if (hitObject.GetComponent<Enemy>() != null || hitObject.GetComponent<Shell>() != null)
+        if (hitObject.GetComponent<Tank>() != null || hitObject.GetComponent<Shell>() != null)
             Destroy(hitObject);
 
         Explosion();
