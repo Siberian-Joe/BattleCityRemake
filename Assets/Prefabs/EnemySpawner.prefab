@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7524374077998190962}
-  - component: {fileID: 5572373143535477180}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -26,22 +25,8 @@ Transform:
   m_GameObject: {fileID: 233058847318136584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.52700084, y: 2.562421, z: -5.0033865}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5572373143535477180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233058847318136584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26731e75cf7b454ca80fd82c0c7b3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnTank: {fileID: 8779414328474593361, guid: 1867de5cfef9bc548824131bc2486bfc, type: 3}
-  _levelManager: {fileID: 0}

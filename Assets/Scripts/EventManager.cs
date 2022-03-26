@@ -3,18 +3,14 @@ using System;
 public static class EventManager
 {
     public static event Action<Tank> EnemyKilled;
-    public static event Action EnemySpawned;
     public static event Action<Tank> PlayerKilled;
-    public static event Action PlayerSpawned;
+    public static event Action Victory;
+    public static event Action Defeat;
+
 
     public static void OnEnemyKilled(Tank tank)
     {
         EnemyKilled?.Invoke(tank);
-    }
-
-    public static void OnEnemySpawned()
-    {
-        EnemySpawned?.Invoke();
     }
 
     public static void OnPlayerKilled(Tank tank)
@@ -22,8 +18,13 @@ public static class EventManager
         PlayerKilled?.Invoke(tank);
     }
 
-    public static void OnPlayerSpawned()
+    public static void OnVictory()
     {
-        PlayerSpawned?.Invoke();
+        Victory?.Invoke();
+    }
+
+    public static void OnDefeat()
+    {
+        Defeat?.Invoke();
     }
 }
