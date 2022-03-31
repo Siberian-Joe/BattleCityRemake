@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class PlayerShooting : MonoBehaviour, IShooting
+public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private Shell _shellObject;
     [SerializeField] private float _speedShell = 7;
@@ -12,13 +12,18 @@ public class PlayerShooting : MonoBehaviour, IShooting
 
     private Input _input;
     private AudioSource _audioSource;
-
+    private bool _isShooting;
     private readonly float _ONE_MINUTE = 60;
 
     private void Awake()
     {
         _input = new Input();
         _audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Shooting());
     }
 
     private void OnEnable()
@@ -31,11 +36,16 @@ public class PlayerShooting : MonoBehaviour, IShooting
         _input.Disable();
     }
 
-    public IEnumerator Shooting()
+    public void SetShooting(bool isShooting)
+    {
+        _isShooting = isShooting;
+    }
+        
+    private IEnumerator Shooting()
     {
         while (true)
         {
-            yield return new WaitUntil(() => _input.Shooting.Shoot.IsPressed() == true);
+            yield return new WaitUntil(() => _isShooting == true);
 
             Shoot();
 

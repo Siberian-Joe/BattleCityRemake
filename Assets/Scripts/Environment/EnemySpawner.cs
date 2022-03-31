@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour, ISpawner
+public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _enemySpawners;
     [SerializeField] private List<Tank> _typesOfTanks;
@@ -42,6 +41,16 @@ public class EnemySpawner : MonoBehaviour, ISpawner
         }
     }
 
+    private void OnEnable()
+    {
+        EventManager.EnemyKilled += OnEntityKilled;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.EnemyKilled -= OnEntityKilled;
+    }
+
     public void OnEntityKilled(Tank sender)
     {
         for (int i = 0; i < _typesOfTanks.Count; i++)
@@ -79,10 +88,5 @@ public class EnemySpawner : MonoBehaviour, ISpawner
         }
 
         return true;
-    }
-
-    private int GetAmountNumbersOfTanks(List<int> numbersOfTanks)
-    {
-        return numbersOfTanks.Sum(context => context);
     }
 }

@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 277204344184224952}
   - component: {fileID: 277204344184224959}
   - component: {fileID: 5056250074202922354}
-  - component: {fileID: 6748257922301700344}
+  - component: {fileID: -4311907917850272298}
   - component: {fileID: 8731109203586049424}
-  - component: {fileID: 5108494144200553598}
+  - component: {fileID: 6748257922301700344}
+  - component: {fileID: 3125286889346021688}
   m_Layer: 0
   m_Name: YellowTankT2
   m_TagString: Untagged
@@ -116,7 +117,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!82 &277204344184224959
 AudioSource:
@@ -226,6 +227,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb098c73b241b041806f253781a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 2
+  _upgradePlayerPefab: {fileID: 5654327000054930398, guid: 36fdff9ac550f6a408d23f43c6feea19, type: 3}
+--- !u!114 &-4311907917850272298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088105500396388844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15a47490d3943942958e9904ddd132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8731109203586049424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088105500396388844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f61b431e6a56924bb8b31ee73ba9a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 3
+  _movementAudio: {fileID: 8300000, guid: be195bd81a1fb6a4485ae8601bee603c, type: 3}
 --- !u!114 &6748257922301700344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,10 +269,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shellObject: {fileID: -2889619199113827287, guid: 6f4d7a889e6b24b44bcb4b25f376b5de, type: 3}
   _speedShell: 7
-  _fireRatePerMinute: 75
+  _fireRatePerMinute: 60
   _barrel: {fileID: 2870922753398918362}
   _shootingAudio: {fileID: 8300000, guid: 29c0e03e3dfb87b478a904cc2c008b50, type: 3}
---- !u!114 &8731109203586049424
+--- !u!114 &3125286889346021688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,24 +281,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1088105500396388844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f61b431e6a56924bb8b31ee73ba9a37, type: 3}
+  m_Script: {fileID: 11500000, guid: d352b3a25708a6941b72540a379feca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _movementAudio: {fileID: 8300000, guid: be195bd81a1fb6a4485ae8601bee603c, type: 3}
---- !u!114 &5108494144200553598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088105500396388844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85423023b05282e4898db754e36f905f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 2
 --- !u!1 &2870922753398918362
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,26 +1,27 @@
 using UnityEngine;
 
-public class Tank : MonoBehaviour
+public abstract class Tank : MonoBehaviour
 {
     [SerializeField] private int _health = 1;
 
-    public void OnDestroyed(Tank sender)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (sender == this
-            || sender.GetComponent<Enemy>() != null
-            && GetComponent<Enemy>() != null)
-            return;
+        if (collision.gameObject != null && collision.gameObject.TryGetComponent(out Shell shell))
+            OnHited(shell.Sender);
+    }
 
+    protected void GetHit()
+    {
         _health--;
 
-        if (_health != 0)
-            return;
+        if (_health == 0)
+            OnKilled();
+    }
 
-        if (GetComponent<Player>() != null)
-            EventManager.OnPlayerKilled(this);
-        else if (GetComponent<Enemy>() != null)
-            EventManager.OnEnemyKilled(this);
-
+    protected virtual void OnKilled()
+    {
         Destroy(gameObject);
     }
+
+    protected abstract void OnHited(Tank sender);
 }

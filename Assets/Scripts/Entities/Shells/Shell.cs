@@ -10,11 +10,6 @@ public class Shell : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Tank hitTank = collision.collider.GetComponent<Tank>();
-
-        if (_sender != null && hitTank != null)
-            hitTank.GetComponent<Tank>().OnDestroyed(_sender);
-
         Explosion();
         Destroy(gameObject);
     }

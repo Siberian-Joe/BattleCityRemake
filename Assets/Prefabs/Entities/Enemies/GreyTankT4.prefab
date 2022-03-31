@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 725828815435346493}
   - component: {fileID: 2130164566603645041}
   - component: {fileID: -2147133490793471958}
-  - component: {fileID: 6930896837120363123}
   m_Layer: 0
   m_Name: GreyTankT4
   m_TagString: Untagged
@@ -116,7 +115,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!195 &9005932418607073934
 NavMeshAgent:
@@ -152,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0b4de0560b9884f94f8a904615a4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 4
 --- !u!114 &2130164566603645041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,22 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randomShootingInterval: 15
   _speedShell: 7
-  _fireRatePerMinute: 75
+  _fireRatePerMinute: 80
   _shellObject: {fileID: -2889619199113827287, guid: 6f4d7a889e6b24b44bcb4b25f376b5de, type: 3}
   _barrel: {fileID: 8226392204137668647}
---- !u!114 &6930896837120363123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2542293729034357660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85423023b05282e4898db754e36f905f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 4
 --- !u!1 &8226392204137668647
 GameObject:
   m_ObjectHideFlags: 0

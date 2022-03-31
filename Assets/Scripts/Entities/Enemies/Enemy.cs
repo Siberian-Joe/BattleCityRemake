@@ -2,10 +2,25 @@ using UnityEngine;
 
 [RequireComponent(typeof(IMovement))]
 [RequireComponent(typeof(IShooting))]
-public class Enemy : MonoBehaviour
+public class Enemy : Tank
 {
     private IMovement _enemyMovement;
     private IShooting _enemyShooting;
+
+    protected override void OnHited(Tank sender)
+    {
+        if (sender == this || sender.GetComponent<Enemy>() != null)
+            return;
+
+        GetHit();
+    }
+
+    protected override void OnKilled()
+    {
+        EventManager.OnEnemyKilled(this);
+
+        base.OnKilled();
+    }
 
     private void Awake()
     {

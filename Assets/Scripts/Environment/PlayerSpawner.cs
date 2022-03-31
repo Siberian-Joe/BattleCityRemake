@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerSpawner : MonoBehaviour, ISpawner
+public class PlayerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _playerSpawner;
     [SerializeField] private Tank _player;
@@ -11,7 +11,17 @@ public class PlayerSpawner : MonoBehaviour, ISpawner
         Spawn(_playerSpawner, _player);
     }
 
-    public void OnEntityKilled(Tank sender)
+    private void OnEnable()
+    {
+        EventManager.PlayerKilled += OnEntityKilled;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.PlayerKilled -= OnEntityKilled;
+    }
+
+    public void OnEntityKilled()
     {
         if (_numberOfPlayerAttempts <= 0)
         {

@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 8985219239496527136}
   - component: {fileID: 5412819738210148997}
   - component: {fileID: 7852806149570942543}
-  - component: {fileID: 8879779290481394175}
   - component: {fileID: 8879779290481394162}
-  - component: {fileID: 8879779290481394172}
-  - component: {fileID: 2091971184099426002}
+  - component: {fileID: 8879779290481394175}
   - component: {fileID: -6718259905451220844}
-  - component: {fileID: 1962303966114865287}
+  - component: {fileID: 2091971184099426002}
+  - component: {fileID: -7554799626593133410}
   - component: {fileID: 2755599598118357655}
+  - component: {fileID: 8879779290481394172}
+  - component: {fileID: -8867440441790862100}
   m_Layer: 0
   m_Name: YellowTankT1
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8645286096802051994}
   m_LocalRotation: {x: 0.00000008159519, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.73, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 8879779290168807176}
@@ -89,6 +90,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8879779290481394162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645286096802051994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13, y: 0.06999999, z: 0.13}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8879779290481394175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -103,50 +117,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &8879779290481394162
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645286096802051994}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.06999999, z: 0.13}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8879779290481394172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645286096802051994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b4a2ad797277e44945b191100a8adb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shellObject: {fileID: -2889619199113827287, guid: 6f4d7a889e6b24b44bcb4b25f376b5de, type: 3}
-  _speedShell: 7
-  _fireRatePerMinute: 75
-  _barrel: {fileID: 8879779290168807179}
-  _shootingAudio: {fileID: 8300000, guid: 29c0e03e3dfb87b478a904cc2c008b50, type: 3}
---- !u!114 &2091971184099426002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645286096802051994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb098c73b241b041806f253781a4945, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &-6718259905451220844
 AudioSource:
   m_ObjectHideFlags: 0
@@ -243,7 +215,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1962303966114865287
+--- !u!114 &2091971184099426002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,10 +224,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645286096802051994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85423023b05282e4898db754e36f905f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fb098c73b241b041806f253781a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  _upgradePlayerPefab: {fileID: 5056250074202922354, guid: 3cff5dc7fc3ecda4e8ca992a2a9743e4, type: 3}
+--- !u!114 &-7554799626593133410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645286096802051994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15a47490d3943942958e9904ddd132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2755599598118357655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +255,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 2
   _movementAudio: {fileID: 8300000, guid: be195bd81a1fb6a4485ae8601bee603c, type: 3}
+--- !u!114 &8879779290481394172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645286096802051994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b4a2ad797277e44945b191100a8adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shellObject: {fileID: -2889619199113827287, guid: 6f4d7a889e6b24b44bcb4b25f376b5de, type: 3}
+  _speedShell: 6
+  _fireRatePerMinute: 50
+  _barrel: {fileID: 8879779290168807179}
+  _shootingAudio: {fileID: 8300000, guid: 29c0e03e3dfb87b478a904cc2c008b50, type: 3}
+--- !u!114 &-8867440441790862100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645286096802051994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d352b3a25708a6941b72540a379feca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8879779290168807179
 GameObject:
   m_ObjectHideFlags: 0

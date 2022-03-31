@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
 
     public void Move()
     {
-        if (_agent.remainingDistance > 1 && _agent.hasPath != false)
+        if (_agent.remainingDistance > 1 && _agent.hasPath == true)
             return;
 
         NavMeshHit navMeshHit = new NavMeshHit();
@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour, IMovement
         {
             bool foundPosition = NavMesh.SamplePosition(transform.position + Random.insideUnitSphere * _rangeRandomPoint, out navMeshHit, _rangeRandomPoint, NavMesh.AllAreas);
 
-            if (!foundPosition)
+            if (foundPosition == false)
                 continue;
 
             _agent.CalculatePath(navMeshHit.position, path);

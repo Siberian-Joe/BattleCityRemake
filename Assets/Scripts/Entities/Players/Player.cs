@@ -1,25 +1,70 @@
 using UnityEngine;
 
-[RequireComponent(typeof(IMovement))]
-[RequireComponent(typeof(IShooting))]
-public class Player : MonoBehaviour
+[RequireComponent(typeof(IInput))]
+[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerShooting))]
+[RequireComponent(typeof(PlayerPowerUpsEffects))]
+public class Player : Tank
 {
-    private IMovement _playerMovement;
-    private IShooting _playerShooting;
+    [SerializeField] private Tank _upgradePlayerPefab;
+
+    private IInput _input;
+    private PlayerMovement _playerMovement;
+    private PlayerShooting _playerShooting;
+    private PlayerPowerUpsEffects _playerPowerUpsEffects;
+    private bool _isShielded;
 
     private void Awake()
     {
-        _playerMovement = GetComponent<IMovement>();
-        _playerShooting = GetComponent<IShooting>();
+        _input = GetComponent<IInput>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerShooting = GetComponent<PlayerShooting>();
+        _playerPowerUpsEffects = GetComponent<PlayerPowerUpsEffects>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        StartCoroutine(_playerShooting.Shooting());
+        EventManager.PowerUpPickUp += OnPowerUpPickUp;
     }
 
-    void FixedUpdate()
+    private void OnDisable()
     {
-        _playerMovement.Move();
+        EventManager.PowerUpPickUp -= OnPowerUpPickUp;
+    }
+
+    private void FixedUpdate()
+    {
+        _playerMovement.Move(_input.MovementInputVector);
+        _playerShooting.SetShooting(_input.IsShooting);
+    }
+
+    public void ActivateShield()
+    {
+        _isShielded = true;
+    }
+
+    public void DeactivateShield()
+    {
+        _isShielded = false;
+    }
+
+    private void OnPowerUpPickUp(PowerUps powerUp, float duration)
+    {
+        _playerPowerUpsEffects.PowerUpDefinition(powerUp, duration, _upgradePlayerPefab);
+    }
+
+    protected override void OnHited(Tank sender)
+    {
+        if (sender == this || _isShielded == true)
+            return;
+
+        GetHit();
+    }
+
+    protected override void OnKilled()
+    {
+        EventManager.OnPlayerKilled();
+
+        base.OnKilled();
     }
 }
