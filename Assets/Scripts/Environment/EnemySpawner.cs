@@ -11,13 +11,10 @@ public class EnemySpawner : MonoBehaviour
     private Dictionary<int, Tank> _spawnedTanks = new Dictionary<int, Tank>();
     private List<int> _spawnedNumbersOfTanks = new List<int>();
 
-    private void Awake()
-    {
-        _spawnedNumbersOfTanks = new List<int>(_numbersOfTanks);
-    }
-
     private void Start()
     {
+        _spawnedNumbersOfTanks = new List<int>(_numbersOfTanks);
+
         for (int i = 0; i < _typesOfTanks.Count; i++)
         {
             if (_numbersOfTanks[i] == 0)

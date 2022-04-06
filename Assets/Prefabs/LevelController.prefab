@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6025256226882835266}
   - component: {fileID: 7314780671280602009}
   - component: {fileID: 7314780671280602010}
+  - component: {fileID: 34278958}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -63,11 +64,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _typesOfTanks:
-  - {fileID: 8779414328474593361, guid: 1867de5cfef9bc548824131bc2486bfc, type: 3}
-  - {fileID: 44448428530185921, guid: 7fae0bf7d1964be4593a117de6b41326, type: 3}
-  - {fileID: -5940512843585005462, guid: 0128628dbeaea2b48b6cf55d3fc0b1e7, type: 3}
-  - {fileID: 6930896837120363123, guid: 759b38e484cba8d4bb77c173486ea99d, type: 3}
-  _numbersOfTanks: 00000000000000000000000000000000
+  - {fileID: 174408859974911509, guid: 1867de5cfef9bc548824131bc2486bfc, type: 3}
+  - {fileID: 1437810589271460194, guid: 7fae0bf7d1964be4593a117de6b41326, type: 3}
+  - {fileID: 4181652964617909035, guid: 0128628dbeaea2b48b6cf55d3fc0b1e7, type: 3}
+  - {fileID: 725828815435346493, guid: 759b38e484cba8d4bb77c173486ea99d, type: 3}
+  _numbersOfTanks: 12000000020000000000000000000000
 --- !u!114 &7314780671280602010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,5 +82,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSpawner: {fileID: 0}
-  _player: {fileID: 1962303966114865287, guid: 2e272101b37106448b902711effd4a9c, type: 3}
+  _player: {fileID: 2091971184099426002, guid: 2e272101b37106448b902711effd4a9c, type: 3}
   _numberOfPlayerAttempts: 3
+--- !u!114 &34278958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117994331431517529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6964c5941e812d6489c3bccb3865d8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _powerUps:
+  - {fileID: 1818720827947396688, guid: f21600a1540c8df4e81bab6edd9de50b, type: 3}
+  - {fileID: 8896500771438979420, guid: b9f15cdb8055b894a8031baae1f28cdb, type: 3}
+  _spawnDelay: 15
+  _rangeRandomPoint: 30
+  _numberOfPowerUps: 3
